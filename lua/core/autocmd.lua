@@ -124,3 +124,10 @@ api.nvim_create_autocmd(
     end,
   }
 )
+
+-- Copy relative path to clipboard
+api.nvim_create_user_command("CopyRelPath", function()
+  local path = vim.fn.fnamemodify(vim.fn.expand("%"), ":.")
+  vim.api.nvim_call_function("setreg", { "+", path })
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})

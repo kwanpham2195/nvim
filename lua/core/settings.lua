@@ -83,7 +83,7 @@ M.tools = {
   "stylua",
   "shfmt",
   -- Linter
-  "eslint_d",
+  -- "eslint_d",
   "shellcheck",
   "tflint",
   "yamllint",
