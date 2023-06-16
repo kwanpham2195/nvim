@@ -112,7 +112,10 @@ wk.register({
     q = { "<cmd>lua require('core.utils.functions').toggle_qf()<cr>", "Toggle quickfix list" },
     t = { "<cmd>TodoQuickFix<cr>", "Show TODOs" },
   },
-  t = { name = "Toggles" },
+  t = {
+    name = "Toggles",
+    m = { "<cmd>MinimapToggle<cr>", "Toggle Minimap" },
+  },
   -- hydra heads
   s = { "Search" },
   w = { "Windows" },
