@@ -54,6 +54,7 @@ M.treesitter_ensure_installed = {
   "toml",
   "vim",
   "yaml",
+  "typescript",
 }
 
 -- LSPs that should be installed by Mason-lspconfig
@@ -83,7 +84,7 @@ M.tools = {
   "stylua",
   "shfmt",
   -- Linter
-  -- "eslint_d",
+  "eslint_d",
   "shellcheck",
   "tflint",
   "yamllint",

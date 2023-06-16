@@ -18,23 +18,23 @@ end)
 for _, lsp in ipairs(settings.lsp_servers) do
   if lsp == "rust_analyzer" then
     vim.notify("rust_analyzer is managed by rust-tools", vim.log.levels.INFO, { title = "LSP config" })
-    break
+  else
+    nvim_lsp[lsp].setup({
+      before_init = function(_, config)
+        if lsp == "pyright" then
+          config.settings.python.pythonPath = utils.get_python_path(config.root_dir)
+        end
+      end,
+      capabilities = capabilities,
+      flags = { debounce_text_changes = 150 },
+      settings = {
+        json = lsp_settings.json,
+        Lua = lsp_settings.lua,
+        ltex = lsp_settings.ltex,
+        redhat = { telemetry = { enabled = false } },
+        texlab = lsp_settings.tex,
+        yaml = lsp_settings.yaml,
+      },
+    })
   end
-  nvim_lsp[lsp].setup({
-    before_init = function(_, config)
-      if lsp == "pyright" then
-        config.settings.python.pythonPath = utils.get_python_path(config.root_dir)
-      end
-    end,
-    capabilities = capabilities,
-    flags = { debounce_text_changes = 150 },
-    settings = {
-      json = lsp_settings.json,
-      Lua = lsp_settings.lua,
-      ltex = lsp_settings.ltex,
-      redhat = { telemetry = { enabled = false } },
-      texlab = lsp_settings.tex,
-      yaml = lsp_settings.yaml,
-    },
-  })
 end

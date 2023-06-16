@@ -7,7 +7,11 @@ local M = {
       "leoluz/nvim-dap-go",
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
+      "mxsdev/nvim-dap-vscode-js",
     },
+    config = function()
+      require("core.plugins.dap.dap").setup()
+    end,
   },
 }
 

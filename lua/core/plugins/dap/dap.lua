@@ -49,6 +49,7 @@ end
 local function configure_debuggers()
   require("core.plugins.dap.python").setup()
   require("core.plugins.dap.go").setup()
+  require("core.plugins.dap.js").setup()
 end
 
 local function create_mapping()
